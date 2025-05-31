@@ -2597,6 +2597,7 @@ static esp_err_t _uvc_streaming_resume(void)
     if (ctrl_set.dwMaxPayloadTransferSize != ctrl_probed.dwMaxPayloadTransferSize) {
         ESP_LOGI(TAG, "dwMaxPayloadTransferSize set = %" PRIu32 ", probed = %" PRIu32, ctrl_set.dwMaxPayloadTransferSize, ctrl_probed.dwMaxPayloadTransferSize);
     }
+    ctrl_probed.dwMaxPayloadTransferSize = 768000; 
     /* start uvc streaming */
     uvc_error_t uvc_ret = UVC_SUCCESS;
     uvc_ret = uvc_stream_open_ctrl(NULL, &uvc_dev->uvc_stream_hdl, &ctrl_probed);
